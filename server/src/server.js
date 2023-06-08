@@ -15,8 +15,11 @@ const server = http.createServer(app);
 
 /**
  * Strict order of async operations:
+ *
  * 1- Connect database; allowing for subsequent loading
+ *
  * 2- Load planets data; allowing launches to reference it
+ *
  * 3- Load launches data; can reference planets successfully
  */
 const startServer = async () => {
