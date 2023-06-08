@@ -70,13 +70,21 @@ const populateLaunches = async () => {
 
     /**
      * Mapping:
+     *
      * flightNumber => flight_number
+     *
      * mission => name
+     *
      * rocket => rocket.name
+     *
      * launchDate => date_local
+     *
      * target => not applicable; new feature
+     *
      * customer => payload.customers for each payload (populate!)
+     *
      * upcoming => upcoming
+     *
      * success => success
      */
     const launch = {
