@@ -14,7 +14,7 @@ mongoose.connection.on("error", (err) => {
 });
 
 const connectDB = async () => {
-  const db = process.env.CLOUD_MONGO_URL;
+  const db = process.env.MONGO_URL;
 
   await mongoose.connect(db);
 
