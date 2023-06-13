@@ -9,7 +9,7 @@ const { connectDB } = require("./utils/db");
 const { loadPlanetsData } = require("./models/planet.model");
 const { loadLaunchesData } = require("./models/launch.model");
 
-const port = process.env.port || 8000;
+const port = process.env.PORT || 8000;
 
 const server = http.createServer(app);
 

@@ -1,4 +1,5 @@
-const API_URL = "v1";
+const API_URL =
+  process.env.NODE_ENV === "prod" ? "v1" : "http://localhost:8000/v1";
 
 /**
  * Load planets and return as JSON.

@@ -5,7 +5,7 @@ WORKDIR /app
 COPY package*.json ./
 # issues? choose package.json only
 
-COPY client/package.json client/
+COPY client/package*.json client/
 RUN npm run install-client --omit=dev
 
 COPY server/package.json server/
