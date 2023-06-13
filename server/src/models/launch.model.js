@@ -9,19 +9,26 @@ const SPACEX_API_URL = "https://api.spacexdata.com/v4/launches/query";
 let defaultFlightNumber = 100;
 
 const saveLaunch = async (launch) => {
-  await Launch.findOneAndUpdate(
-    {
-      flightNumber: launch.flightNumber,
-    },
-    launch,
-    {
-      upsert: true,
-    }
-  );
+  try {
+    await Launch.findOneAndUpdate(
+      {
+        flightNumber: launch.flightNumber,
+      },
+      launch,
+      {
+        upsert: true,
+      }
+    );
+  } catch (err) {
+    console.error(`Failed to save launch ${err}`);
+    throw new Error(`Failed to save launch`);
+  }
 };
 
 const findLaunch = async (filter) => {
-  return await Launch.findOne(filter);
+  const launch = await Launch.findOne(filter);
+
+  return launch;
 };
 
 const existsLaunchWithId = async (launchId) => {
@@ -164,7 +171,7 @@ const abortLaunchById = async (launchId) => {
     }
   );
 
-  return abortedLaunch.ok === 1 && abortedLaunch.nModified;
+  return abortedLaunch.modifiedCount === 1;
 };
 
 module.exports = {
