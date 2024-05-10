@@ -4,7 +4,7 @@ const chalk = require("chalk");
 const { Launch } = require("./launch.mongo");
 const { Planet } = require("./planet.mongo");
 
-const SPACEX_API_URL = "https://api.spacexdata.com/v4/launches/query";
+const SPACEX_API_URL = "https://api.spacexdata.com/v4/launches/";
 
 let defaultFlightNumber = 100;
 
